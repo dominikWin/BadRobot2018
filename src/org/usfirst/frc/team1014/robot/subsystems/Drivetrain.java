@@ -54,6 +54,13 @@ public class Drivetrain extends Subsystem {
 				"join:Drivetrain/Output Voltages");
 		BadLog.createTopic("Drivetrain/Left Back Voltage", "V", () -> leftBack.getMotorOutputVoltage(), "hide",
 				"join:Drivetrain/Output Voltages");
+		
+		BadLog.createTopic("Drivetrain/X Displacement", "m", () -> (double)ahrs.getDisplacementX(), "hide",
+				"join:Drivetrain/Displacement Values");
+		BadLog.createTopic("Drivetrain/Y Displacement", "m", () -> (double)ahrs.getDisplacementY(), "hide",
+				"join:Drivetrain/Displacement Values");
+		BadLog.createTopic("Drivetrain/Z Displacement", "m", () -> (double)ahrs.getDisplacementZ(), "hide",
+				"join:Drivetrain/Displacement Values");
 
 		ahrs = new AHRS(Port.kMXP);
 		ahrs.zeroYaw();
@@ -108,7 +115,6 @@ public class Drivetrain extends Subsystem {
 	 * @return 1 for right, -1 for left
 	 */
 	public int getSwitchSide() {
-
 		if (DriverStation.getInstance().getGameSpecificMessage().charAt(0) == 'R')
 			return 1;
 		return -1;
@@ -120,7 +126,6 @@ public class Drivetrain extends Subsystem {
 	 */
 	public int getScaleSide() {
 		if (DriverStation.getInstance().getGameSpecificMessage().charAt(1) == 'R')
-
 			return 1;
 		return -1;
 	}

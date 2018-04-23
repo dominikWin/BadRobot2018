@@ -2,14 +2,9 @@ package org.usfirst.frc.team1014.robot.commands.teleop;
 
 import org.usfirst.frc.team1014.robot.subsystems.Grabber;
 import org.usfirst.frc.team1014.robot.subsystems.Lifter;
-import org.usfirst.frc.team1014.robot.util.LogUtil;
 
-import badlog.lib.BadLog;
-import badlog.lib.DataInferMode;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class TeleGrab extends Command {
@@ -22,13 +17,11 @@ public class TeleGrab extends Command {
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void execute() {
-
 		if (controller.getRawButton(2)) {
 			// Collect cubes
 			grabber.turnCollect(1);
@@ -81,8 +74,6 @@ public class TeleGrab extends Command {
 		this.controller = controller;
 		this.grabber = grabber;
 		this.lifter = lifter;
-
-		BadLog.createTopicSubscriber("Grabber/Heartbeat", "bool", DataInferMode.DEFAULT);
 	}
 
 }

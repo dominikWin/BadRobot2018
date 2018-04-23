@@ -34,5 +34,4 @@ public class AutoDelay extends Command{
 		return (currentTime_us - startTime_us) > time_us;
 	}
 
-
 }

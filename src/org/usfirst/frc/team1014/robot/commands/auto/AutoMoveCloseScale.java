@@ -11,7 +11,7 @@ public class AutoMoveCloseScale extends CommandGroup{
 
 	public AutoMoveCloseScale(Drivetrain driveTrain, Lifter lifter, Grabber grabber) {
 		this.addSequential(new AutoRaiseScale(lifter, 1));
-		this.addSequential(new DriveStraight(driveTrain, .3, .9)); //time was a little short for center scale
+		this.addSequential(new DriveStraight(driveTrain, .3, 2)); //time was a little short for center scale
 		this.addSequential(new AutoRelease(grabber));
 		this.addSequential(new DriveStraight(driveTrain, -.3, 1)); 
 		this.addSequential(new AutoRaiseScale(lifter, -1));

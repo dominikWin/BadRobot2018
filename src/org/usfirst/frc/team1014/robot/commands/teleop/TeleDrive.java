@@ -11,12 +11,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- * An example command. You can replace me with your own command.
- */
 public class TeleDrive extends Command {
 	private static final double DRIVE_STRAIGHT_TRIGGER_DEADZONE = .05;
-	private static final double DRIVE_STRAIGHT_TWEAK_DEADZONE = 0.1; // changing this changes logic below
+	private static final double DRIVE_STRAIGHT_TWEAK_DEADZONE = 0.1;
 	private XboxController controller;
 	private Drivetrain driveTrain;
 	double targetAngle;
@@ -45,7 +42,6 @@ public class TeleDrive extends Command {
 	@Override
 	protected void initialize() {
 		targetAngle = 0;
-
 	}
 
 	@Override

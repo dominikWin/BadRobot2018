@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.usfirst.frc.team1014.robot.commands.Autonomous;
 import org.usfirst.frc.team1014.robot.commands.Teleop;
 import org.usfirst.frc.team1014.robot.commands.auto.AutoDelay;
+import org.usfirst.frc.team1014.robot.commands.auto.AutoExtremesScale;
 import org.usfirst.frc.team1014.robot.commands.auto.AutoMode;
 import org.usfirst.frc.team1014.robot.commands.auto.Prohibit;
 import org.usfirst.frc.team1014.robot.commands.auto.StartCenterScale;
@@ -47,7 +48,7 @@ public class Robot extends TimedRobot {
 	private boolean initialized = false;
 
 	/*
-	 * Not a real init, delay until we have info
+	 * Not a real init, delay until we have info.  If there is no driver station attached, logging is not necessary.
 	 */
 	@Override
 	public void robotInit() {
@@ -55,6 +56,9 @@ public class Robot extends TimedRobot {
 			init();
 	}
 
+	/*
+	 * Checks to see if driver station is attached.
+	 */
 	private boolean shouldInit() {
 		if (!DriverStation.getInstance().isDisabled())
 			return true;
@@ -109,10 +113,7 @@ public class Robot extends TimedRobot {
 			autoChooser.addDefault("Center Switch", AutoMode.CENTER_SWITCH);
 			autoChooser.addObject("Right Side", AutoMode.RIGHT);
 			autoChooser.addObject("Left Side", AutoMode.LEFT);
-			// autoChooser.addObject("Right Side No Switch", AutoMode.RIGHT_NO_SWITCH);
-			// autoChooser.addObject("Left Side No Switch", AutoMode.LEFT_NO_SWITCH);
-			// autoChooser.addObject("Right Side No Scale", AutoMode.RIGHT_NO_SCALE);
-			// autoChooser.addObject("Left Side No Scale", AutoMode.LEFT_NO_SCALE);
+
 			autoChooser.addObject("Center Scale", AutoMode.CENTER_SCALE);
 
 			prohibitChooser.addDefault("None", Prohibit.NONE);
@@ -139,7 +140,7 @@ public class Robot extends TimedRobot {
 		
 		autoCG.addSequential(new AutoDelay(SmartDashboard.getNumber("Delay", 0)));
 		
-		switch ((AutoMode) autoChooser.getSelected()) {
+		/*switch ((AutoMode) autoChooser.getSelected()) {
 
 		case CENTER_SCALE:
 			autoCG.addSequential(new StartCenterScale(driveTrain, lifter, grabber));
@@ -183,8 +184,10 @@ public class Robot extends TimedRobot {
 		default: // Center Switch
 			autoCG.addSequential(new StartCenterSwitch(driveTrain, lifter, grabber));
 
-		}
-
+		}*/
+		autoCG.addSequential(new StartRight(driveTrain, lifter, grabber, 0, driveTrain.getScaleSide(),
+						driveTrain.getSwitchSide()));
+		
 		autoCG.start();
 	}
 
