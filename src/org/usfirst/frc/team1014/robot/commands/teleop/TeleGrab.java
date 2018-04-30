@@ -39,10 +39,10 @@ public class TeleGrab extends Command {
 
 			if (Math.abs(speed) < .1)
 				speed = 0;
-			
-			if(lifter.isAtBottomLimit())
+
+			if (lifter.isAtBottomLimit())
 				autoLiftUntil = System.currentTimeMillis() + AUTO_GRAB_LIFT_TIME;
-			
+
 			boolean overrideLimits = false;
 
 			boolean forceLift = System.currentTimeMillis() - autoLiftUntil < 0;

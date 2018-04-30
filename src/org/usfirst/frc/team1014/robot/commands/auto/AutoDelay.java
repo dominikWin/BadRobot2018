@@ -5,13 +5,14 @@ import org.usfirst.frc.team1014.robot.subsystems.Lifter;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoDelay extends Command{
-	
+public class AutoDelay extends Command {
+
 	private double time_us, startTime_us, currentTime_us;
-	
+
 	/**
 	 * 
-	 * @param time - in seconds
+	 * @param time
+	 *            - in seconds
 	 */
 	public AutoDelay(double time) {
 		this.time_us = time * 1000000;
@@ -26,7 +27,7 @@ public class AutoDelay extends Command{
 	}
 
 	protected void end() {
-		
+
 	}
 
 	@Override

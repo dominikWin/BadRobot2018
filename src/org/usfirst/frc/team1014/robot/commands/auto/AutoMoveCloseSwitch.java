@@ -7,7 +7,7 @@ import org.usfirst.frc.team1014.robot.subsystems.Lifter;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoMoveCloseSwitch extends CommandGroup{
+public class AutoMoveCloseSwitch extends CommandGroup {
 
 	public AutoMoveCloseSwitch(Drivetrain driveTrain, Lifter lifter, Grabber grabber) {
 		this.addSequential(new AutoRaiseSwitch(lifter, 1));
