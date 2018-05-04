@@ -5,13 +5,13 @@ import org.usfirst.frc.team1014.robot.subsystems.Grabber;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoRelease extends Command{
+class AutoRelease extends Command{
 	private static final double TIME_US = 1000000; 
 	
 	private Grabber grabber;
 	private double startTime_us, currentTime_us;
 	
-	public AutoRelease(Grabber grabber) {
+	AutoRelease(Grabber grabber) {
 		this.grabber = grabber;
 	}
 	

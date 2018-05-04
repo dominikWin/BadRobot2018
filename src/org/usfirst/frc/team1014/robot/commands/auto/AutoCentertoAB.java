@@ -7,10 +7,7 @@ import org.usfirst.frc.team1014.robot.util.FieldSide;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoCentertoAB extends CommandGroup {
-
-	double power, half;
-
+class AutoCentertoAB extends CommandGroup {
 	/**
 	 * 
 	 * 
@@ -21,7 +18,7 @@ public class AutoCentertoAB extends CommandGroup {
 	 * 
 	 * 
 	 */
-	public AutoCentertoAB(Drivetrain drivetrain, FieldSide side) {
+	AutoCentertoAB(Drivetrain drivetrain, FieldSide side) {
 		this.addSequential(new DriveStraightDistance(drivetrain, 15.5));
 		this.addSequential(new Spin(drivetrain, (-60 * side.flipAssumeRight())));
 		this.addSequential(new DriveStraightDistance(drivetrain, 120)); // 140 was too long

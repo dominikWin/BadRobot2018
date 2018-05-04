@@ -8,7 +8,7 @@ public class Spin extends Command {
 	private Drivetrain driveTrain;
 	private double angle;
 	
-	long startTime;
+	private long startTime;
 
 	/**
 	 * 

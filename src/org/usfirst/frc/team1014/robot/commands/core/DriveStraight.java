@@ -9,7 +9,7 @@ public class DriveStraight extends Command {
 	private double seconds;
 	private double speed;
 
-	long startTime;
+	private long startTime;
 
 	public DriveStraight(Drivetrain driveTrain, double speed, double seconds) {
 		this.speed = speed;

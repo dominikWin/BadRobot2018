@@ -13,7 +13,7 @@ public class TeleGrab extends Command {
 	private Lifter lifter;
 
 	private static final int AUTO_GRAB_LIFT_TIME = 300;
-	long autoLiftUntil = 0;
+	private long autoLiftUntil = 0;
 
 	@Override
 	protected boolean isFinished() {

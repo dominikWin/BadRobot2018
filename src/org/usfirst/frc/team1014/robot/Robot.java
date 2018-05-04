@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.usfirst.frc.team1014.robot.commands.Autonomous;
 import org.usfirst.frc.team1014.robot.commands.Teleop;
 import org.usfirst.frc.team1014.robot.commands.auto.AutoDelay;
-import org.usfirst.frc.team1014.robot.commands.auto.AutoExtremesScale;
 import org.usfirst.frc.team1014.robot.commands.auto.AutoMode;
 import org.usfirst.frc.team1014.robot.commands.auto.Prohibit;
 import org.usfirst.frc.team1014.robot.commands.auto.StartCenterScale;
@@ -32,19 +31,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	public static OI oi;
 
-	Drivetrain driveTrain;
-	Lifter lifter;
-	Grabber grabber;
-	Climber climber;
+	private Drivetrain driveTrain;
+	private Lifter lifter;
+	private Grabber grabber;
+	private Climber climber;
 
-	Teleop teleopCG;
-	Autonomous autoCG;
+	private Teleop teleopCG;
+	private Autonomous autoCG;
 
 	private BadLog logger;
 	private long startTimeNS;
 	private long lastLog;
 
-	SendableChooser autoChooser, prohibitChooser;
+	private SendableChooser<AutoMode> autoChooser;
+	private SendableChooser<Prohibit> prohibitChooser;
 
 	private boolean initialized = false;
 
@@ -109,8 +109,8 @@ public class Robot extends TimedRobot {
 			teleopCG = new Teleop(driveTrain, grabber, lifter, climber);
 			autoCG = new Autonomous(driveTrain, lifter, grabber);
 
-			autoChooser = new SendableChooser();
-			prohibitChooser = new SendableChooser();
+			autoChooser = new SendableChooser<AutoMode>();
+			prohibitChooser = new SendableChooser<Prohibit>();
 
 			autoChooser.addDefault("Center Switch", AutoMode.CENTER_SWITCH);
 			autoChooser.addObject("Right Side", AutoMode.RIGHT);
@@ -162,10 +162,6 @@ public class Robot extends TimedRobot {
 			autoCG.addSequential(new StartCenterSwitch(driveTrain, lifter, grabber, fieldConfiguration));
 
 		}
-
-		// autoCG.addSequential(new StartSide(driveTrain, lifter, grabber, 0,
-		// driveTrain.getScaleSide(),
-		// driveTrain.getSwitchSide()));
 
 		autoCG.start();
 	}

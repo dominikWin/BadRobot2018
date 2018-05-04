@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Grabber extends Subsystem {
 
-	TalonSRX rightWheel, leftWheel;
+	private TalonSRX rightWheel, leftWheel;
 
 	public Grabber() {
 		rightWheel = new TalonSRX(RobotMap.GRABBER_RIGHT_1_ID);

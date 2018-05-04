@@ -8,19 +8,17 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
 import badlog.lib.BadLog;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Drivetrain extends Subsystem {
 
-	TalonSRX rightFront, rightBack, leftFront, leftBack;
+	private TalonSRX rightFront, rightBack, leftFront, leftBack;
 
-	AHRS ahrs;
+	private AHRS ahrs;
 
 	private double targetAngle;
-	MiniPID miniPID;
-	double currentAngle;
+	private MiniPID miniPID;
 
 	public Drivetrain() {
 		rightFront = new TalonSRX(RobotMap.DRIVE_RIGHT_1_ID);

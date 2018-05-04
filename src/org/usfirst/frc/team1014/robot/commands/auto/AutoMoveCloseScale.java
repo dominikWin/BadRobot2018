@@ -7,9 +7,9 @@ import org.usfirst.frc.team1014.robot.subsystems.Lifter;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoMoveCloseScale extends CommandGroup {
+class AutoMoveCloseScale extends CommandGroup {
 
-	public AutoMoveCloseScale(Drivetrain driveTrain, Lifter lifter, Grabber grabber) {
+	AutoMoveCloseScale(Drivetrain driveTrain, Lifter lifter, Grabber grabber) {
 		this.addSequential(new AutoRaiseScale(lifter, 1));
 		this.addSequential(new DriveStraight(driveTrain, .3, 2)); // time was a little short for center scale
 		this.addSequential(new AutoRelease(grabber));

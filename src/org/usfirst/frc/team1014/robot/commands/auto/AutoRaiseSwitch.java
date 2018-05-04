@@ -5,13 +5,13 @@ import org.usfirst.frc.team1014.robot.subsystems.Lifter;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoRaiseSwitch extends Command {
+class AutoRaiseSwitch extends Command {
 
 	private static final double TIME_US = 1300000; // Time value is currently incorrect. Needs to move 13 inches
 
 	private Lifter lifter;
 	private double startTime_us, currentTime_us;
-	int direction;
+	private int direction;
 
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class AutoRaiseSwitch extends Command {
 	 * @param direction
 	 *            - 1 for up -1 for down
 	 */
-	public AutoRaiseSwitch(Lifter lifter, int direction) {
+	AutoRaiseSwitch(Lifter lifter, int direction) {
 		this.lifter = lifter;
 		this.direction = direction;
 	}

@@ -9,14 +9,14 @@ import org.usfirst.frc.team1014.robot.util.FieldSide;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoRLScale extends CommandGroup{
+class AutoRLScale extends CommandGroup{
 	
 	/**
 	 * 
 	 * @param driveTrain
 	 * @param direction - 1 for right, -1 for left
 	 */
-	public AutoRLScale(Drivetrain driveTrain, Lifter lifter, Grabber grabber, FieldSide side) {	//tested
+	AutoRLScale(Drivetrain driveTrain, Lifter lifter, Grabber grabber, FieldSide side) {	//tested
 		this.addSequential(new DriveStraightDistance(driveTrain, 252));
 		this.addSequential(new Spin(driveTrain, side.flipAssumeRight() * 45));
 		this.addSequential(new AutoMoveCloseScale(driveTrain, lifter, grabber));

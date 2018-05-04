@@ -9,7 +9,7 @@ import org.usfirst.frc.team1014.robot.util.FieldSide;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoRLSwitch extends CommandGroup {
+class AutoRLSwitch extends CommandGroup {
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class AutoRLSwitch extends CommandGroup {
 	 * @param direction
 	 *            - 1 for right, -1 for left
 	 */
-	public AutoRLSwitch(Drivetrain driveTrain, Lifter lifter, Grabber grabber, FieldSide side) { // untested
+	AutoRLSwitch(Drivetrain driveTrain, Lifter lifter, Grabber grabber, FieldSide side) { // untested
 		this.addSequential(new DriveStraightDistance(driveTrain, 140)); // value is definitely not right
 		this.addSequential(new Spin(driveTrain, side.flipAssumeRight() * 90));
 		this.addSequential(new AutoMoveCloseSwitch(driveTrain, lifter, grabber));

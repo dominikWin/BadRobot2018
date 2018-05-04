@@ -16,10 +16,9 @@ public class TeleDrive extends Command {
 	private static final double DRIVE_STRAIGHT_TWEAK_DEADZONE = 0.1;
 	private XboxController controller;
 	private Drivetrain driveTrain;
-	double targetAngle;
 	private Joystick controller1;
 
-	double slowedSpeedLeft, slowedSpeedRight, slowedSpeedStraight;
+	private double slowedSpeedLeft, slowedSpeedRight, slowedSpeedStraight;
 	private static final double SLOWED_SPEED_RATIO = 1d / 3d;
 	private final double SLOWED_SPEED_RAMP_RATE = .5;
 
@@ -41,7 +40,6 @@ public class TeleDrive extends Command {
 
 	@Override
 	protected void initialize() {
-		targetAngle = 0;
 	}
 
 	@Override

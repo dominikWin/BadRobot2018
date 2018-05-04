@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 
 public class FieldConfiguration {
 
-	FieldSide ourSwitch, scale, opponentSwitch;
+	private FieldSide ourSwitch, scale, opponentSwitch;
 
 	public FieldSide getOurSwitch() {
 		return ourSwitch;

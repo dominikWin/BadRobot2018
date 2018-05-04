@@ -9,10 +9,10 @@ public class DriveStraightDistance extends Command {
 	private double seconds;
 	private double speed;
 
-	long startTime;
+	private long startTime;
 
-	double linRegOffset = -11.6;
-	double linRegScaler = 91.8;
+	private double linRegOffset = -11.6;
+	private double linRegScaler = 91.8;
 
 	/**
 	 * 

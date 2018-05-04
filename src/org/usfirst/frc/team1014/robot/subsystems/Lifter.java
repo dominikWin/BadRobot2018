@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lifter extends Subsystem {
 
-	TalonSRX liftMotor;
+	private TalonSRX liftMotor;
 
 	public Lifter() {
 
